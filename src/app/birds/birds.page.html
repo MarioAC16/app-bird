@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;">Aves de Guatemala</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let pajaro of pajaros">
+      <ion-label style="text-align: center;">
+        <div><strong style="border: 5cap;">Familia:</strong> {{ pajaro.gen }} {{ pajaro.sp }}</div>
+        <div><strong>Nombre:</strong> {{ pajaro.en }}</div>
+        <div><strong>Ubicación:</strong> {{ pajaro.loc }}</div>
+        <div><strong>Descubridor:</strong> {{ pajaro.rec }}</div>
+        <div><strong>Sonido</strong></div>
+        <ion-button shape="round" (click)="reproducirSonido(pajaro.file)">
+          <ion-icon slot="icon-only" name="play"></ion-icon>
+        </ion-button>
+        <ion-button shape="round" (click)="pausarSonido()">
+          <ion-icon slot="icon-only" name="pause"></ion-icon>
+        </ion-button>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
